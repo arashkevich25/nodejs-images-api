@@ -32,3 +32,8 @@ jobs:
       - run: npm run test:cov
 
       - run: npm run test:e2e
+
+      - uses: codecov/codecov-action@v5
+        with:
+          directory: api/coverage
+          token: ${{ secrets.CODECOV_TOKEN }}

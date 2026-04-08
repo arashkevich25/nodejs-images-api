@@ -26,9 +26,7 @@ describe('ImageProcessingService', () => {
     const pixels = Buffer.alloc(width * height * channels, 0xff);
 
     const sharp = require('sharp');
-    return sharp(pixels, { raw: { width, height, channels } })
-      .png()
-      .toBuffer();
+    return sharp(pixels, { raw: { width, height, channels } }).png().toBuffer();
   };
 
   it('should process image and return webp', async () => {

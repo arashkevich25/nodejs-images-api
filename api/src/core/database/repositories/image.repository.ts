@@ -3,7 +3,10 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { FindManyOptions, Like, Repository } from 'typeorm';
 import { Image } from '../entities/image.entity';
 import { BaseRepository } from './base.repository';
-import { PaginatedResult, PaginationOptions } from '../../../common/types/pagination';
+import {
+  PaginatedResult,
+  PaginationOptions,
+} from '../../../common/types/pagination';
 
 @Injectable()
 export class ImageRepository extends BaseRepository<Image> {

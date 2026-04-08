@@ -3,6 +3,7 @@ import {
   DeepPartial,
   FindOptionsWhere,
   FindManyOptions,
+  QueryDeepPartialEntity,
 } from 'typeorm';
 import { BaseEntity } from '../entities/base.entity';
 import {
@@ -49,7 +50,7 @@ export abstract class BaseRepository<T extends BaseEntity> {
   }
 
   async update(id: string, data: DeepPartial<T>): Promise<T | null> {
-    await this.repository.update(id, data as any);
+    await this.repository.update(id, data as QueryDeepPartialEntity<T>);
     return this.findById(id);
   }
 

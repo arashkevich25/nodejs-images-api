@@ -1,5 +1,10 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { Global, INestApplication, Module, ValidationPipe } from '@nestjs/common';
+import {
+  Global,
+  INestApplication,
+  Module,
+  ValidationPipe,
+} from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import request from 'supertest';
 import { App } from 'supertest/types';
@@ -196,9 +201,7 @@ describe('Images (e2e)', () => {
     });
 
     it('should return 400 for invalid uuid', async () => {
-      await request(app.getHttpServer())
-        .get('/images/not-a-uuid')
-        .expect(400);
+      await request(app.getHttpServer()).get('/images/not-a-uuid').expect(400);
     });
   });
 });

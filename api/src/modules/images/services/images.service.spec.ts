@@ -87,7 +87,11 @@ describe('ImagesService', () => {
 
       await service.create({ title: 'resized', width: 200, height: 100 }, file);
 
-      expect(imageProcessingService.process).toHaveBeenCalledWith(file, 200, 100);
+      expect(imageProcessingService.process).toHaveBeenCalledWith(
+        file,
+        200,
+        100,
+      );
     });
   });
 

@@ -51,7 +51,11 @@ describe('ImagesController', () => {
     it('should create an image with full url', async () => {
       imagesService.create.mockResolvedValue(mockImage);
 
-      const result = await controller.create({ title: 'test image' }, file, mockReq);
+      const result = await controller.create(
+        { title: 'test image' },
+        file,
+        mockReq,
+      );
 
       expect(result.url).toBe('http://localhost:3000/uploads/test.webp');
       expect(result.title).toBe('test image');
@@ -77,7 +81,9 @@ describe('ImagesController', () => {
 
       const result = await controller.findAll({}, mockReq);
 
-      expect(result.data[0].url).toBe('http://localhost:3000/uploads/test.webp');
+      expect(result.data[0].url).toBe(
+        'http://localhost:3000/uploads/test.webp',
+      );
     });
   });
 

@@ -32,9 +32,7 @@ export class ImageProcessingService {
       });
     }
 
-    const result = await pipeline
-      .webp({ quality: 80 })
-      .toFile(outputPath);
+    const result = await pipeline.webp({ quality: 80 }).toFile(outputPath);
 
     return {
       filename,

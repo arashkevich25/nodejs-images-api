@@ -60,7 +60,10 @@ export class ImagesController {
     },
   })
   @ApiResponse({ status: 201, type: ImageResponseDto })
-  @ApiResponse({ status: 400, description: 'Invalid input or unsupported format' })
+  @ApiResponse({
+    status: 400,
+    description: 'Invalid input or unsupported format',
+  })
   @UseInterceptors(
     FileInterceptor('image', {
       storage: memoryStorage(),
@@ -101,7 +104,10 @@ export class ImagesController {
   @ApiOperation({ summary: 'Get image by id' })
   @ApiResponse({ status: 200, type: ImageResponseDto })
   @ApiResponse({ status: 404, description: 'Image not found' })
-  async findOne(@Param('id', ParseUUIDPipe) id: string, @Req() req: express.Request) {
+  async findOne(
+    @Param('id', ParseUUIDPipe) id: string,
+    @Req() req: express.Request,
+  ) {
     const image = await this.imagesService.findOne(id);
     return this.withFullUrl(req, image);
   }

@@ -33,7 +33,10 @@ describe('ImageRepository', () => {
     it('should find images by title with pagination', async () => {
       mockRepo.findAndCount.mockResolvedValue([[image], 1]);
 
-      const result = await repository.findByTitle('sun', { page: 1, limit: 10 });
+      const result = await repository.findByTitle('sun', {
+        page: 1,
+        limit: 10,
+      });
 
       expect(result.data).toEqual([image]);
       expect(result.total).toBe(1);
